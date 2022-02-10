@@ -1,0 +1,26 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MYSQL
+
+  #  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/Delivery?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+#    username: root
+#    password: secret
+
+  jpa:
+    database: mysql #database 종류 선택
+    hibernate:
+      ddl-auto: create-drop # none, create, update, validate
+    properties:
+      hibernate:
+        format_sql: true # 쿼리 나올때 깔끔하게
+    default_batch_patch_size : 100
+
+
+logging.level:
+  org.hibernate.SQL: debug # 쿼리문 보기
+  org.apache.coyote.http11: debug #http 요청 메시지 보기
